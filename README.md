@@ -1,7 +1,7 @@
-Melanoma Detection
+# Melanoma Detection
 
 
->  To build a CNN based model which can accurately detect melanoma. Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution that can evaluate images and alert dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.
+>  In this assignment, we need to build a CNN based model which can accurately detect melanoma. Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution that can evaluate images and alert dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.
 
 The dataset consists of 2357 images of malignant and benign oncological diseases, which were formed from the International Skin Imaging Collaboration (ISIC). All images were sorted according to the classification taken with ISIC, and all subsets were divided into the same number of images, with the exception of melanomas and moles, whose images are slightly dominant.
 
@@ -18,6 +18,29 @@ Seborrheic keratosis
 Squamous cell carcinoma
 Vascular lesion 
 
+## Project Pipeline
+Data Reading/Data Understanding → Defining the path for train and test images.
+Dataset Creation→ Create train & validation dataset from the train directory with a batch size of 32. Also, make sure you resize your images to 180*180.
+Dataset visualisation → Create a code to visualize one instance of all the nine classes present in the dataset.
+Model Building & training : Create a CNN model, which can accurately detect 9 classes present in the dataset. While building the model rescale images to normalize pixel values between (0,1).
+Choose an appropriate optimiser and loss function for model training.
+Train the model for ~20 epochs.
+Write your findings after the model fit, see if there is evidence of model overfit or underfit.
+Choose an appropriate data augmentation strategy to resolve underfitting/overfitting
+Model Building & training on the augmented data:
+Create a CNN model, which can accurately detect 9 classes present in the dataset. While building the model rescale images to normalize pixel values between (0,1).
+Choose an appropriate optimiser and loss function for model training
+Train the model for ~20 epochs
+Write your findings after the model fit, see if the earlier issue is resolved or not? **Class distribution: **
+Examine the current class distribution in the training dataset
+Which class has the least number of samples?
+Which classes dominate the data in terms of the proportionate number of samples? Handling class imbalances:
+Rectify class imbalances present in the training dataset with Augmentor library. Model Building & training on the rectified class imbalance data:
+Create a CNN model, which can accurately detect 9 classes present in the dataset. While building the model rescale images to normalize pixel values between (0,1).
+Choose an appropriate optimiser and loss function for model training
+Train the model for ~30 epochs
+Write your findings after the model fit, see if the issues are resolved or not? The model training may take time to train and hence you can need to use Google colab.
+
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
@@ -25,6 +48,7 @@ Vascular lesion
 * [Acknowledgements](#acknowledgements)
 
 <!-- You can include any other section that is pertinent to your problem -->
+
 
 ## General Information
 - Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution that can evaluate images and alert dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.
@@ -44,15 +68,22 @@ Seborrheic keratosis
 Squamous cell carcinoma
 Vascular lesion 
 
+These are the summary retrieved from the model, further information can be found in the Notebook.
+
+We built the model using CNN with 3 convolutional layers following by a fully connected layer before going to softmax layer.
+
+After 20 epochs, the training accuracy is 55% and validation accuracy is 50%, which is better than the first model
+After 30 epochs the training accuracy is 68% and validation accuracy is 65% with least overfitting.
+After 50 epochs the Training Accuracy is 95% and Validation Accuracy is 85%, the model Performance drastically Improved with No overfitting
+
 ## Technologies Used
-- matplotlib
-- seaborn
-- pandas
-- numpy
-- sklearn
-- statsmodels
-- Keras
-- Augmentor, tensorflow
+- python - version 3.10
+- pandas - version 1.5.2
+- notebook - version 6.5.2
+- matplotlib - version 3.6.2
+- tensorflow - version 2.10.1
+- Augmentor - version 0.2.10
+- keras - version 2.11. 0
 
 ## Contact
 Created by [@SindhuGS1] - feel free to contact me!
